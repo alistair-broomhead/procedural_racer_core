@@ -11,12 +11,12 @@ WHEELS = {}
 ENGINES = {}
 BREAKS = {}
 
-POSTFIXES = {
-    "": Vanilla,
-    "+H": Handling,
-    "+A": Acceleration,
-    "+B": Breaking
-}
+POSTFIXES = (
+    ("", Vanilla),
+    ("+H", Handling),
+    ("+A", Acceleration),
+    ("+B", Breaking)
+)
 
 PREFIXES = (
     ("Chassis", Chassis,    CHASSIS),
@@ -25,9 +25,18 @@ PREFIXES = (
     ("Breaks",  Breaks,     BREAKS)
 )
 
-SERIES = ()
+SERIES = (
+    ("Newbie", 10),
+    ("Starter", 20),
+    ("A30", 30),
+    ("A40", 40),
+    ("A50", 50),
+    ("B70", 70),
+    ("B80", 80),
+    ("B99", 99),
+)
 
-PARTS[0] = {}
+PARTS["Stock"] = {}
 
 for prefix, part_type, part_dict in PREFIXES:
     series_name = "Stock"
@@ -50,9 +59,9 @@ for series_name, series in SERIES:
     CHASSIS[series_name] = \
         series_dict["Chassis"][series_name] =\
         Chassis(series_name, series)
-    for postfix, tweak in POSTFIXES.items():
+    for postfix, tweak in POSTFIXES:
         for prefix, part_type, part_dict in PREFIXES[1:]:
             name = "%s %s%s" % (prefix, series_name, postfix)
-            part_dict[series][name] =\
+            part_dict[series_name][name] =\
                 series_dict[prefix][name] =\
                 part_type(name, series, tweak)

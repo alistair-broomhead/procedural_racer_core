@@ -66,23 +66,23 @@ class PartBase(ComponentBase):
 
 class Wheels(PartBase):
     def __init__(self, name, series, tweak):
-        self.handling = floor(series / 5)
-        self.acceleration = floor(series / 20)
-        self.breaking = floor(series / 20)
+        self.handling = series / 5.0
+        self.acceleration = series / 20.0
+        self.breaking = series / 20.0
         super(Wheels, self).__init__(name, series, tweak)
 
 
 class Engine(PartBase):
     def __init__(self, name, series, tweak):
-        self.handling = floor(series / 20)
-        self.acceleration = floor(series / 5)
-        self.breaking = floor(series / 20)
+        self.handling = series / 20.0
+        self.acceleration = series / 5.0
+        self.breaking = series / 20.0
         super(Engine, self).__init__(name, series, tweak)
 
 
 class Breaks(PartBase):
     def __init__(self, name, series, tweak):
-        self.handling = floor(series / 20)
-        self.acceleration = floor(series / 20)
-        self.breaking = floor(series / 5)
+        self.handling = series / 20.0
+        self.acceleration = series / 20.0
+        self.breaking = series / 5.0
         super(Breaks, self).__init__(name, series, tweak)

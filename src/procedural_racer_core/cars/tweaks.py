@@ -35,11 +35,11 @@ class Handling(TweakBase):
 
 class Acceleration(TweakBase):
     handling = 0.9
-    acceleration = 1.15
+    acceleration = 1.25
     breaking = 0.9
 
 
 class Breaking(TweakBase):
     handling = 0.9
     acceleration = 0.9
-    breaking = 1.15
+    breaking = 1.25
